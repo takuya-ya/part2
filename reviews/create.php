@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/lib/mysqli.php';
 
-$list = dbConnect();
+$link = dbConnect();
 // HTTPメソッドがPOSTか判定
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -13,11 +13,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'score' => $_POST['score'],
       'summary' => $_POST['summary']
   ];
-var_dump($review);
 
-  // データベースに接続
-  // ユーザーのポストを取得
   // ヴァリデーション
   // データベースに登録
+$sql = <<<EOT
+    INSERT INTO reviews (
+        'title',
+        'author',
+        'status',
+        'score',
+        'summary'
+    ) VALUES (
+        "{$review['title']}",
+        "{$review['status']}",
+        "{$review['author']}",
+        "{$review['score']}",
+        "{$review['summary']}"
+    )
+EOT;
+$result = mysqli_query($link, $sql);
   // データベースを切断する
 };
