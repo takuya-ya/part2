@@ -12,7 +12,7 @@
 <body>
   <h1>読書ログ</h1>
   <h2>読書ログの登録</h2>
-  <form action="" method="post">
+  <form action="create.php" method="post">
       <div>
           <label for="title">書籍名</label>
           <input type="text" id="title" name="title">
