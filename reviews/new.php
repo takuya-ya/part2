@@ -25,15 +25,15 @@
           <label for="status">読書状況</label>
           <div>
               <div>
-                  <input type="radio" id="status1" name="status1" value="未読">
+                  <input type="radio" id="status1" name="status" value="未読">
                   <label for="status1">未読</label>
               </div>
               <div>
-                  <input type="radio" id="status2" name="status2" value="読書中">
+                  <input type="radio" id="status2" name="status" value="読書中">
                   <label for="status2">読書中</label>
               </div>
               <div>
-                  <input type="radio" id="status3" name="status3" value="読了">
+                  <input type="radio" id="status3" name="status" value="読了">
                   <label for="status3">読了</label>
               </div>
           </div>
