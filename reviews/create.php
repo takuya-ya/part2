@@ -42,4 +42,6 @@ if ($result) {
     echo 'Debugging error:' . mysqli_error($link);
 }
 // データベースを切断する
-};
+mysqli_close($link);
+echo 'データベースを切断しました';
+}
