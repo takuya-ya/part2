@@ -34,13 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     EOT;
 
 $result = mysqli_query($link, $sql);
-
-if ($result) {
-    echo 'データを登録しました' . PHP_EOL;
-} else {
-    echo 'データの登録に失敗しました' . PHP_EOL;
-    echo 'Debugging error:' . mysqli_error($link);
+if (!$result) {
+    error_log('Failed to register data.' . PHP_EOL);
+    error_log('Debugging error:' . mysqli_error($link));
 }
+
 mysqli_close($link);
 echo 'データベースを切断しました';
 }
