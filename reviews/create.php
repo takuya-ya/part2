@@ -9,6 +9,20 @@ function validation($review){
         $errors['title'] = 'タイトルを記入してください' . PHP_EOL;
     }
 
+    if (!mb_strlen($review['author'])) {
+        $errors['author'] = '著者名を入力してください' . PHP_EOL;
+    }
+    if (!mb_strlen($review['status'])) {
+        $errors['status'] = '読書状況を入力してください' . PHP_EOL;
+    }
+    if (!mb_strlen($review['score'])) {
+        $errors['score'] = '評価を入力してください' . PHP_EOL;
+    }
+    var_dump($review['score']);
+    if (!mb_strlen($review['summary'])) {
+        $errors['summary'] = '感想を入力してください' . PHP_EOL;
+    }
+
     return $errors;
 }
 
@@ -42,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'title' => $_POST['title'],
         'author' => $_POST['author'],
         'status' => $_POST['status'],
-        'score' => (int)$_POST['score'],
+        'score' => $_POST['score'],
         'summary' => $_POST['summary']
     ];
 
