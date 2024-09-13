@@ -35,8 +35,6 @@ EOT;
     }
 }
 
-$link = dbConnect();
-$error = mysqli_connect_error($link);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $review = [
@@ -47,9 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'summary' => $_POST['summary']
     ];
 
-
-    // $validated = validation($review);
+    $link = dbConnect();
     createReview($link, $review);
+    // $validated = validation($review);
     mysqli_close($link);
     echo 'データベースを切断しました';
 }
