@@ -61,11 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
     $link = dbConnect();
-    createReview($link, $review);
     $errors = validation($review);
 
     // errorsが無ければデータ登録して一覧ページに遷移
     if (!count($errors)) {
+    createReview($link, $review);
     mysqli_close($link);
     echo 'データベースを切断しました';
     header("Location: index.php");
