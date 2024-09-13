@@ -18,7 +18,6 @@ function validation($review){
     if (!mb_strlen($review['score'])) {
         $errors['score'] = '評価を入力してください' . PHP_EOL;
     }
-    var_dump($review['score']);
     if (!mb_strlen($review['summary'])) {
         $errors['summary'] = '感想を入力してください' . PHP_EOL;
     }
