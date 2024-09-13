@@ -12,8 +12,7 @@ function dbConnect() {
     $dbDatabase = $_ENV['DB_DATABASE'];
 
     $link = mysqli_connect($dbHost, $dbUser, $dbPass, $dbDatabase);
-
-    $error = mysqli_connect_error();
+    $error = mysqli_connect_error($link);
     if(!$link) {
         die(<<<ERROR
             データベースに接続できませんでした。
