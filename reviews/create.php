@@ -4,9 +4,9 @@ require_once __DIR__ . '/lib/mysqli.php';
 
 function validation($review){
     $errors = [];
-
-    if ($errors >= 1) {
-
+// if文で入力検査してerrorsに入れる
+    if (!strlen($review['title'])) {
+        $errors['title'] = 'タイトルを記入してください';
     }
     return $errors;
 }
@@ -47,8 +47,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $link = dbConnect();
     createReview($link, $review);
-    // $validated = validation($review);
+    $errors = validation($review);
+
+    // errorsが無ければデータ登録して一覧ページに遷移
+    if (!count($errors)) {
     mysqli_close($link);
     echo 'データベースを切断しました';
+    header("Location: index.php");
+    }
+
+    var_dump($errors);
+    // エラーがあれば、new.phpの登録フォールを再表示して、エラーも表示させる
 }
-header("Location: index.php");
