@@ -5,9 +5,10 @@ require_once __DIR__ . '/lib/mysqli.php';
 function validation($review){
     $errors = [];
 // if文で入力検査してerrorsに入れる
-    if (!strlen($review['title'])) {
+    if (!mb_strlen($review['title'])) {
         $errors['title'] = 'タイトルを記入してください' . PHP_EOL;
     }
+
     return $errors;
 }
 
