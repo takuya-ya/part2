@@ -1,1 +1,8 @@
+$headings-line-height: 1.5;
+$line-height-base: 1.65;
+
 @import '/var/www/html/vendor/twbs/bootstrap/scss/bootstrap.scss';
+
+body {
+    letter-spacing: .1em;
+}
