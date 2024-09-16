@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../stylesheets/css/app.css">
-    <title>読書ログ</title>
-</head>
-
-<body>
-  <div class="container">
       <h2>読書ログ</h2>
       <h2 class="h2 text-dark mt-4 mb-4">読書ログの登録</h2>
       <form action="create.php" method="POST">
@@ -59,6 +48,3 @@
           </div>
           <button type="submit" class="btn btn-primary">登録する</button>
       </form>
-  </div>
-</body>
-</html>

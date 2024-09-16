@@ -7,4 +7,6 @@ $review['score'] = '';
 $review['summary'] = '';
 
 $errors = [];
-include 'views/new.php';
+$title = '登録ページ';
+$contents = __DIR__ . '/views/new.php';
+include __DIR__ . '/views/layout.php';
