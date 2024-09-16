@@ -2,9 +2,54 @@
 
 require_once __DIR__ . '/lib/mysqli.php';
 
-$link = dbConnect();
-$error = mysqli_connect_error($link);
-// HTTPメソッドがPOSTか判定
+function validation($review){
+    $errors = [];
+// if文で入力検査してerrorsに入れる
+    if (!mb_strlen($review['title'])) {
+        $errors['title'] = 'タイトルを記入してください' . PHP_EOL;
+    }
+
+    if (!mb_strlen($review['author'])) {
+        $errors['author'] = '著者名を入力してください' . PHP_EOL;
+    }
+    if (!mb_strlen($review['status'])) {
+        $errors['status'] = '読書状況を入力してください' . PHP_EOL;
+    }
+    if (!mb_strlen($review['score'])) {
+        $errors['score'] = '評価を入力してください' . PHP_EOL;
+    }
+    if (!mb_strlen($review['summary'])) {
+        $errors['summary'] = '感想を入力してください' . PHP_EOL;
+    }
+
+    return $errors;
+}
+
+function createReview($link, $review) {
+    $sql = <<<EOT
+    INSERT INTO reviews (
+        title,
+        author,
+        status,
+        score,
+        summary
+    ) VALUES (
+        "{$review['title']}",
+        "{$review['author']}",
+        "{$review['status']}",
+        "{$review['score']}",
+        "{$review['summary']}"
+    )
+EOT;
+
+    $result = mysqli_query($link, $sql);
+    if (!$result) {
+        error_log('Failed to register data.' . PHP_EOL);
+        error_log('Debugging error:' . mysqli_error($link));
+    }
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $review = [
@@ -15,33 +60,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'summary' => $_POST['summary']
     ];
 
-  // ヴァリデーション
-  // データベースに登録
-    $sql = <<<EOT
-        INSERT INTO reviews (
-            title,
-            author,
-            status,
-            score,
-            summary
-        ) VALUES (
-            "{$review['title']}",
-            "{$review['author']}",
-            "{$review['status']}",
-            "{$review['score']}",
-            "{$review['summary']}"
-        )
-    EOT;
+    $link = dbConnect();
+    $errors = validation($review);
 
-$result = mysqli_query($link, $sql);
+    // errorsが無ければデータ登録して一覧ページに遷移
+    if (!count($errors)) {
+    createReview($link, $review);
+    mysqli_close($link);
+    echo 'データベースを切断しました';
+    header("Location: index.php");
+    }
+}
 
-if ($result) {
-    echo 'データを登録しました' . PHP_EOL;
-} else {
-    echo 'データの登録に失敗しました' . PHP_EOL;
-    echo 'Debugging error:' . mysqli_error($link);
-}
-mysqli_close($link);
-echo 'データベースを切断しました';
-}
-header("Location: index.php");
+include 'views/new.php';
