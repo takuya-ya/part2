@@ -6,6 +6,6 @@ $review['status'] = '未読';
 $review['score'] = '';
 $review['summary'] = '';
 
-$title = '一覧ページ';
+$title = '読書ログ一覧';
 $contents = __DIR__ . '/views/index.php';
 include __DIR__ . '/views/layout.php';
