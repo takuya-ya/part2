@@ -1,4 +1,3 @@
-      <h2>読書ログ</h2>
       <h2 class="h2 text-dark mt-4 mb-4">読書ログの登録</h2>
       <form action="create.php" method="POST">
             <?php if (count($errors)): ?>

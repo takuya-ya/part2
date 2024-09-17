@@ -1,6 +1,5 @@
 
-  <h2>読書ログ</h2>
-  <a href="./new.php" class="alert-link">読書ログを登録する</a>
+<a href="./new.php" class="alert-link">読書ログを登録する</a>
 
   <main>
       <section>
