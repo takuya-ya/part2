@@ -1,16 +1,27 @@
 
 <a href="./new.php" class="alert-link">読書ログを登録する</a>
 
-  <main>
-      <section>
-        <?php echo $review['title']; ?>
-      </section>
-      <section></section>
-      <section></section>
-      <section></section>
-
-        <!-- "{$review['author']}",
-        "{$review['status']}",
-        "{$review['score']}",
-        "{$review['summary']}" -->
-  </main>
+<main>
+    <?php if (!count($reviews)) : ?>
+        会社情報が登録されていません。
+    <?php endif; ?>
+    <?php foreach ($reviews as $review) : ?>
+        <section>
+            <h2>
+                タイトル：<?php echo $review['title']; ?>
+            </h2>
+            <div>
+                著者名：<?php echo $review['author']; ?>
+            </div>
+            <div>
+                読書状況：<?php echo $review['status']; ?>
+            </div>
+            <div>
+                評価：<?php echo $review['score']; ?>
+            </div>
+            <div>
+                感想：<?php echo $review['summary']; ?>
+            </div>
+        </section>
+    <?php endforeach; ?>
+</main>
