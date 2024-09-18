@@ -72,4 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-include 'views/new.php';
+$title = '読書ログ登録';
+$contents = __DIR__ . '/views/new.php';
+include __DIR__ . '/views/layout.php';

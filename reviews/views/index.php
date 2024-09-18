@@ -1,17 +1,16 @@
 
-  <h1>読書ログ一覧</h1>
-  <a href="./new.php">登録ページ</a>
+<a href="./new.php" class="alert-link">読書ログを登録する</a>
+
   <main>
       <section>
-
+        <?php echo $review['title']; ?>
       </section>
       <section></section>
       <section></section>
       <section></section>
 
-      "{$review['title']}",
-        "{$review['author']}",
+        <!-- "{$review['author']}",
         "{$review['status']}",
         "{$review['score']}",
-        "{$review['summary']}"
+        "{$review['summary']}" -->
   </main>

@@ -1,12 +1,14 @@
 <?php
 
-$review['title'] = '';
-$review['author'] = '';
-$review['status'] = '未読';
-$review['score'] = '';
-$review['summary'] = '';
-
+$review = [
+  'title' => '',
+  'author' => '',
+  'status' => '未読',
+  'score' => '',
+  'summary' => ''
+];
 $errors = [];
-$title = '登録ページ';
+
+$title = '読書ログ登録';
 $contents = __DIR__ . '/views/new.php';
 include __DIR__ . '/views/layout.php';
