@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/lib/escape.php';
 require_once __DIR__ . '/lib/mysqli.php';
 
 // ダミーの初期値　後でデータベースから取得する処理を追加後に削除

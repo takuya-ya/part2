@@ -8,19 +8,19 @@
     <?php foreach ($reviews as $review) : ?>
         <section>
             <h2>
-                タイトル：<?php echo $review['title']; ?>
+                タイトル：<?php echo escape($review['title']); ?>
             </h2>
             <div>
-                著者名：<?php echo $review['author']; ?>
+                著者名：<?php echo escape($review['author']); ?>
             </div>
             <div>
-                読書状況：<?php echo $review['status']; ?>
+                読書状況：<?php echo escape($review['status']); ?>
             </div>
             <div>
-                評価：<?php echo $review['score']; ?>
+                評価：<?php echo escape($review['score']); ?>
             </div>
             <div>
-                感想：<?php echo $review['summary']; ?>
+                感想：<?php echo escape($review['summary']); ?>
             </div>
         </section>
     <?php endforeach; ?>
