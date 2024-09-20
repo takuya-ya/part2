@@ -41,7 +41,7 @@
               <label for="score">評価（5点満点の整数 ）</label>
               <input type="text" id="score" name="score" class="form-control" value="<?php echo $review['score']; ?>">
           </div>
-          <div lass="form-group">
+          <div class="form-group">
               <label for="summary">感想</label>
               <textarea name="summary" id="summary" class="form-control mb-4" rows="10"><?php echo $review['summary']; ?></textarea>
           </div>
