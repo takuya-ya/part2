@@ -1,4 +1,5 @@
 
+
 <a href="./new.php" class="alert-link">読書ログを登録する</a>
 
 <main>
@@ -20,7 +21,7 @@
                 評価：<?php echo escape($review['score']); ?>
             </div>
             <div>
-                感想：<?php echo escape($review['summary']); ?>
+                感想：<?php echo nl2br(escape($review['summary'])); ?>
             </div>
         </section>
     <?php endforeach; ?>
